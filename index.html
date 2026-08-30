@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Medium Engineering — engineering systems for transforming complex industrial and environmental media into accessible resources.">
+  <title>Medium Engineering</title>
+  <style>
+    :root{
+      --bg:#f7f8f6;
+      --ink:#17201d;
+      --muted:#66706c;
+      --line:#d9dfdc;
+      --panel:#ffffff;
+      --accent:#315f55;
+      --accent-dark:#24483f;
+      --soft:#e9efec;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(247,248,246,.88);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(217,223,220,.75);
+    }
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:-.02em}
+    .mark{
+      width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+      display:grid;place-items:center;background:#fff;overflow:hidden;
+    }
+    .mark span{width:17px;height:17px;border-radius:50%;border:2px solid var(--accent);display:block}
+    .links{display:flex;gap:28px;font-size:14px;color:#46514d}
+    .links a:hover{color:var(--accent)}
+    .hero{padding:112px 0 100px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--accent);font-size:13px;font-weight:700;
+      letter-spacing:.13em;text-transform:uppercase;
+    }
+    .dot{width:7px;height:7px;background:var(--accent);border-radius:50%}
+    h1{
+      max-width:900px;margin:22px 0 25px;
+      font-size:clamp(48px,7vw,88px);line-height:.98;
+      letter-spacing:-.055em;font-weight:650;
+    }
+    .hero p{
+      max-width:720px;margin:0;color:var(--muted);
+      font-size:21px;line-height:1.55;
+    }
+    .actions{display:flex;gap:12px;margin-top:38px;flex-wrap:wrap}
+    .btn{
+      padding:13px 19px;border-radius:7px;border:1px solid var(--accent);
+      font-size:14px;font-weight:650;display:inline-block;
+    }
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.primary:hover{background:var(--accent-dark)}
+    .btn.secondary{background:#fff;color:var(--accent)}
+    section{padding:92px 0;border-top:1px solid var(--line)}
+    .grid2{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px}
+    .label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    h2{font-size:clamp(34px,4vw,54px);line-height:1.05;letter-spacing:-.04em;margin:12px 0 20px}
+    .lead{font-size:19px;color:#4f5a56}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
+    .card{
+      background:var(--panel);border:1px solid var(--line);padding:27px;
+      min-height:210px;border-radius:8px;
+    }
+    .card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.02em}
+    .card p{margin:0;color:var(--muted);font-size:15px}
+    .number{font-size:12px;color:var(--accent);font-weight:750;margin-bottom:28px}
+    .statement{
+      background:var(--ink);color:#f6f8f7;border-radius:10px;padding:55px;
+    }
+    .statement p{font-size:30px;line-height:1.3;letter-spacing:-.025em;max-width:900px;margin:0}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+    .project{
+      border-top:2px solid var(--accent);padding-top:22px;
+    }
+    .project h3{font-size:20px;margin:0 0 8px}
+    .project p{font-size:14px;color:var(--muted);margin:0}
+    .note{
+      margin-top:38px;padding:22px 24px;background:var(--soft);
+      border-left:3px solid var(--accent);color:#45514c;font-size:14px;
+    }
+    footer{padding:55px 0 70px;color:var(--muted);font-size:13px}
+    footer .foot{display:flex;justify-content:space-between;gap:30px;border-top:1px solid var(--line);padding-top:24px}
+    @media(max-width:800px){
+      .links{display:none}
+      .hero{padding:78px 0 70px}
+      .grid2{grid-template-columns:1fr;gap:35px}
+      .cards,.projects{grid-template-columns:1fr}
+      .statement{padding:32px}
+      .statement p{font-size:24px}
+      .wrap{width:min(100% - 30px,1160px)}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top" aria-label="Medium Engineering">
+        <span class="mark"><span></span></span>
+        <span>Medium Engineering</span>
+      </a>
+      <div class="links">
+        <a href="#technology">Technology</a>
+        <a href="#applications">Applications</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">R&amp;D</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-top:0">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span> Engineering the medium</div>
+      <h1>We engineer the state of complex media.</h1>
+      <p>
+        Medium Engineering develops physical and process systems for working with
+        complex dispersed media — from contaminated water and mine drainage to
+        hydrocarbons, mineral suspensions and industrial residues.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#technology">Explore the technology</a>
+        <a class="btn secondary" href="#contact">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="technology">
+    <div class="wrap grid2">
+      <div>
+        <div class="label">01 / Technology</div>
+        <h2>Change the system, not just the chemistry.</h2>
+      </div>
+      <div>
+        <p class="lead">
+          Many industrial and environmental problems are not simply chemical.
+          They are problems of structure, interfaces, dispersion, aggregation
+          and accessibility.
+        </p>
+        <p class="lead">
+          Medium Engineering approaches the medium itself as an engineered
+          system. Controlled physical action can destabilize complex structures,
+          accelerate separation and make previously inaccessible components
+          available for recovery or treatment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="applications">
+    <div class="wrap">
+      <div class="label">02 / Applications</div>
+      <h2>One engineering principle.<br>Many industrial environments.</h2>
+
+      <div class="cards">
+        <article class="card">
+          <div class="number">01</div>
+          <h3>Mine water &amp; AMD</h3>
+          <p>
+            Treatment and transformation of acidic mine drainage, with a focus
+            on reduced reagent demand, phase separation and recovery of valuable
+            mineral components.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">02</div>
+          <h3>Mineral processing</h3>
+          <p>
+            Engineering dispersed mineral systems to improve accessibility,
+            classification, concentration and downstream recovery.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">03</div>
+          <h3>Hydrocarbons</h3>
+          <p>
+            Structural treatment of complex hydrocarbon systems, including
+            heavy oil and difficult emulsions, with the objective of improving
+            resource accessibility and process efficiency.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">04</div>
+          <h3>Marine &amp; industrial water</h3>
+          <p>
+            New approaches to bilge water, port discharges, industrial residues
+            and other complex aqueous systems where conventional separation
+            becomes expensive or inefficient.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="statement">
+        <p>
+          “The objective is not to force a complex medium through a conventional
+          process. It is to understand its structure — and engineer the moment
+          when that structure becomes accessible.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="label">03 / Projects</div>
+      <h2>From laboratory phenomena<br>to industrial systems.</h2>
+
+      <div class="projects">
+        <article class="project">
+          <h3>Andalusia · AMD</h3>
+          <p>
+            Development of an industrial treatment and resource-recovery
+            approach for large-volume acidic mine drainage.
+          </p>
+        </article>
+
+        <article class="project">
+          <h3>Europe · Industrial R&amp;D</h3>
+          <p>
+            Building a European network of industrial, academic and technology
+            partners for validation and scale-up.
+          </p>
+        </article>
+
+        <article class="project">
+          <h3>Marine &amp; Ports</h3>
+          <p>
+            R&amp;D direction focused on complex port waters, bunker-related
+            pollutants and marine environmental systems.
+          </p>
+        </article>
+      </div>
+
+      <div class="note">
+        Selected technical details, experimental protocols and proprietary
+        know-how are intentionally not published on this public resource.
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap grid2">
+      <div>
+        <div class="label">04 / Research &amp; development</div>
+        <h2>European R&amp;D platform.</h2>
+      </div>
+      <div>
+        <p class="lead">
+          Medium Engineering is being developed as an interdisciplinary
+          engineering platform connecting physical processes, environmental
+          technology, mineral resources and industrial applications.
+        </p>
+        <p class="lead">
+          The next stage is validation: independent laboratories, universities,
+          industrial partners and pilot installations working together to move
+          measurable effects from laboratory scale toward deployable systems.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap grid2">
+      <div>
+        <div class="label">05 / Contact</div>
+        <h2>Let’s engineer the next medium.</h2>
+      </div>
+      <div>
+        <p class="lead">
+          We are interested in conversations with industrial companies,
+          research groups, technology partners and investors working on
+          difficult environmental and resource challenges.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:contact@medium-engineering.com">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span>© 2026 Medium Engineering</span>
+      <span>Europe · R&amp;D · Industrial Technology</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
