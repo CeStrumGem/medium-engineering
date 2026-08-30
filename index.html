@@ -7,105 +7,205 @@
 <title>Medium Engineering</title>
 <style>
 :root{
-  --black:#0d1110; --paper:#f7f8f7; --white:#fff; --ink:#111715;
-  --muted:#68736f; --line:#d9dfdc; --blue:#2f6fe4; --red:#ef2b16;
+  --bg:#f5f6f5;
+  --paper:#ffffff;
+  --ink:#0d1110;
+  --muted:#64706b;
+  --line:#d9dedb;
+  --blue:#2468df;
+  --red:#ed2916;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);
-font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-line-height:1.55}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.55
+}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(1180px,calc(100% - 48px));margin:auto}
 
-header{position:sticky;top:0;z-index:50;background:rgba(247,248,247,.92);
-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(245,246,245,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line)
+}
 nav{height:82px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;font-weight:760;letter-spacing:-.025em}
-.brand img{width:42px;height:42px}
-.links{display:flex;gap:27px;font-size:13px;color:#4d5854}
+.brand{
+  font-weight:760;letter-spacing:-.03em;font-size:18px;
+}
+.brand small{
+  display:block;color:var(--blue);font-size:9px;letter-spacing:.15em;
+  text-transform:uppercase;font-weight:800;margin-top:1px
+}
+.nav-right{display:flex;align-items:center;gap:28px}
+.links{display:flex;gap:25px;font-size:13px;color:#4b5652}
 .links a:hover{color:var(--blue)}
+.cestrum-mini{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700}
+.cestrum-mini img{width:34px;height:34px;border-radius:50%;background:#000}
 
-.hero{padding:58px 0 95px}
-.hero-visual{position:relative;border-radius:10px;overflow:hidden;background:#fff;
-border:1px solid var(--line);min-height:520px;display:flex;align-items:flex-end}
-.hero-visual img.field{width:100%;height:520px;object-fit:cover;object-position:center}
-.hero-copy{position:absolute;left:46px;bottom:42px;max-width:800px;
-background:rgba(247,248,247,.91);padding:26px 30px;border-left:4px solid var(--red)}
-.kicker{font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
-h1{font-size:clamp(48px,7vw,88px);line-height:.91;letter-spacing:-.065em;
-margin:13px 0 18px;font-weight:680}
-.hero-copy p{font-size:18px;color:#4e5955;max-width:700px;margin:0}
-.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}
-.btn{padding:12px 18px;border:1px solid var(--ink);border-radius:6px;
-font-size:13px;font-weight:720;background:white}
-.btn.primary{background:var(--black);color:#fff;border-color:var(--black)}
+.hero{padding:48px 0 90px}
+.hero-frame{
+  position:relative;min-height:650px;background:var(--paper);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden
+}
+.field{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  opacity:.32;
+}
+.hero-field-mask{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.92) 43%,rgba(255,255,255,.38) 72%,rgba(255,255,255,.08) 100%)
+}
+.hero-copy{
+  position:relative;z-index:2;
+  padding:78px 58px;max-width:830px
+}
+.kicker{
+  display:flex;align-items:center;gap:9px;
+  color:var(--blue);font-size:11px;font-weight:850;
+  letter-spacing:.17em;text-transform:uppercase
+}
+.kicker i{display:block;width:7px;height:7px;background:var(--red);border-radius:50%}
+h1{
+  font-size:clamp(52px,7.2vw,94px);line-height:.91;
+  letter-spacing:-.068em;font-weight:680;
+  margin:18px 0 25px;max-width:850px
+}
+.hero-copy p{
+  margin:0;max-width:700px;color:#4f5a56;font-size:19px
+}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:31px}
+.btn{
+  padding:12px 18px;border:1px solid var(--ink);border-radius:6px;
+  font-size:13px;font-weight:720;background:#fff
+}
+.btn.primary{background:var(--ink);color:#fff}
 .btn.blue{border-color:var(--blue);color:var(--blue)}
 
-section{padding:90px 0;border-top:1px solid var(--line)}
-.label{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
-.grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
-h2{font-size:clamp(35px,4.5vw,58px);line-height:.98;letter-spacing:-.05em;margin:10px 0 20px}
-.lead{font-size:18px;color:#4d5955;margin:0 0 18px}
+.hero-caption{
+  position:absolute;z-index:3;right:26px;bottom:22px;
+  font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  color:#52605a;font-weight:750
+}
 
-.flow{margin-top:45px;display:grid;grid-template-columns:repeat(4,1fr);
-border:1px solid var(--line);background:white;border-radius:8px;overflow:hidden}
-.flow-item{padding:24px 21px;min-height:170px;border-right:1px solid var(--line);position:relative}
+section{padding:88px 0;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:80px}
+.label{
+  font-size:10px;font-weight:850;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue)
+}
+h2{
+  font-size:clamp(36px,4.5vw,59px);line-height:.98;
+  letter-spacing:-.052em;margin:11px 0 22px
+}
+.lead{font-size:18px;color:#4d5854;margin:0 0 18px}
+
+.flow{
+  margin-top:43px;display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff
+}
+.flow-item{padding:24px 21px;min-height:165px;border-right:1px solid var(--line);position:relative}
 .flow-item:last-child{border-right:0}
-.flow-item .n{font-size:10px;color:var(--red);font-weight:800;margin-bottom:29px}
+.flow-item .n{font-size:10px;color:var(--red);font-weight:850;margin-bottom:28px}
 .flow-item h3{font-size:18px;line-height:1.15;margin:0 0 8px}
 .flow-item p{font-size:13px;color:var(--muted);margin:0}
-.flow-item:after{content:"→";position:absolute;right:-10px;top:50%;background:white;
-padding:0 4px;color:var(--red);font-weight:800}
+.flow-item:after{
+  content:"→";position:absolute;right:-9px;top:50%;
+  transform:translateY(-50%);background:#fff;padding:0 4px;
+  color:var(--red);font-weight:850;z-index:2
+}
 .flow-item:last-child:after{display:none}
 
-.dark{background:var(--black);color:white;border-radius:9px;padding:55px 58px;position:relative;overflow:hidden}
-.dark:before,.dark:after{content:"";position:absolute;border:1px solid rgba(47,111,228,.5);
-border-radius:50%;width:430px;height:160px;right:-130px;top:-50px;transform:rotate(18deg)}
-.dark:after{border-color:rgba(239,43,22,.55);right:90px;top:55px;width:260px;height:110px}
-.dark .label{color:#8bb0ff}
-.dark h2{max-width:900px;margin-bottom:0}
-.dark p{max-width:820px;color:#b9c3bf;font-size:18px}
+.statement{
+  background:var(--ink);color:#fff;border-radius:9px;
+  padding:55px 58px;position:relative;overflow:hidden
+}
+.statement:before,.statement:after{
+  content:"";position:absolute;right:-90px;top:-55px;
+  width:420px;height:165px;border:1px solid rgba(36,104,223,.65);
+  border-radius:50%;transform:rotate(18deg)
+}
+.statement:after{
+  right:80px;top:45px;width:255px;height:100px;
+  border-color:rgba(237,41,22,.65)
+}
+.statement .label{color:#86aaff}
+.statement h2{max-width:900px;margin-bottom:0;position:relative;z-index:2}
 
-.identity{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
-.identity-card{background:white;border:1px solid var(--line);border-radius:8px;padding:34px}
-.identity-card img.seal{width:125px;height:125px;object-fit:contain;background:#000;border-radius:50%}
-.identity-card .mark{width:76px;height:76px}
-.identity-card h3{font-size:29px;letter-spacing:-.04em;margin:20px 0 9px}
+.identity{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px
+}
+.identity-card{
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:32px
+}
+.identity-card h3{font-size:29px;letter-spacing:-.04em;margin:17px 0 9px}
 .identity-card p{font-size:14px;color:var(--muted);margin:0}
-.role{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.role{
+  font-size:10px;color:var(--blue);font-weight:850;
+  letter-spacing:.13em;text-transform:uppercase
+}
+.cestrum-seal{
+  width:105px;height:105px;object-fit:contain;border-radius:50%;
+  background:#000;margin-top:19px
+}
+.ce-text{
+  margin-top:18px;padding-top:17px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:13px
+}
 
 .apps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
-.app{background:white;border:1px solid var(--line);border-radius:8px;padding:24px;min-height:205px}
-.app .n{font-size:10px;color:var(--red);font-weight:800}
-.app h3{font-size:19px;letter-spacing:-.025em;margin:26px 0 9px}
+.app{
+  background:#fff;border:1px solid var(--line);border-radius:8px;
+  padding:24px;min-height:205px
+}
+.app .n{font-size:10px;color:var(--red);font-weight:850}
+.app h3{font-size:19px;letter-spacing:-.025em;margin:25px 0 9px}
 .app p{font-size:13px;color:var(--muted);margin:0}
 
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
 .project{border-top:2px solid var(--red);padding-top:18px}
-.project .state{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.project .state{
+  font-size:10px;color:var(--blue);font-weight:850;
+  letter-spacing:.12em;text-transform:uppercase
+}
 .project h3{font-size:20px;margin:12px 0 8px}
 .project p{font-size:14px;color:var(--muted);margin:0}
 
-.research{margin-top:38px;border-top:1px solid var(--line)}
-.row{display:flex;justify-content:space-between;gap:25px;padding:18px 0;border-bottom:1px solid var(--line)}
+.research{margin-top:37px;border-top:1px solid var(--line)}
+.row{
+  display:flex;justify-content:space-between;gap:25px;
+  padding:18px 0;border-bottom:1px solid var(--line)
+}
 .row strong{font-size:14px}.row span{font-size:13px;color:var(--muted);text-align:right}
 
-.contact{background:white;border:1px solid var(--line);border-radius:9px;padding:43px}
-footer{padding:50px 0 70px;color:var(--muted);font-size:12px}
-.foot{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between}
+.contact{
+  background:#fff;border:1px solid var(--line);border-radius:9px;padding:44px
+}
+footer{padding:48px 0 68px;color:var(--muted);font-size:12px}
+.foot{
+  border-top:1px solid var(--line);padding-top:22px;
+  display:flex;justify-content:space-between;gap:20px
+}
 
 @media(max-width:900px){
- .links{display:none}.hero{padding:25px 0 65px}.hero-visual{min-height:520px}
- .hero-visual img.field{height:520px}.hero-copy{left:20px;right:20px;bottom:20px;padding:22px}
- .grid{grid-template-columns:1fr;gap:28px}
- .flow,.identity,.apps,.projects{grid-template-columns:1fr}
- .flow-item{border-right:0;border-bottom:1px solid var(--line);min-height:auto}
- .flow-item:last-child{border-bottom:0}.flow-item:after{display:none}
- .dark{padding:32px}.contact{padding:30px}
- .row{display:block}.row span{display:block;text-align:left;margin-top:4px}
- .foot{display:block}.foot span{display:block;margin-bottom:7px}
- .wrap{width:min(100% - 30px,1180px)}
+  .links{display:none}.nav-right{gap:0}
+  .hero{padding:24px 0 65px}
+  .hero-frame{min-height:650px}
+  .hero-copy{padding:55px 25px}
+  .hero-field-mask{background:linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,255,255,.65))}
+  .grid,.identity,.apps,.projects{grid-template-columns:1fr;gap:28px}
+  .flow{grid-template-columns:1fr}
+  .flow-item{border-right:0;border-bottom:1px solid var(--line);min-height:auto}
+  .flow-item:last-child{border-bottom:0}
+  .flow-item:after{display:none}
+  .statement{padding:34px}
+  .contact{padding:30px}
+  .row{display:block}.row span{display:block;text-align:left;margin-top:4px}
+  .foot{display:block}.foot span{display:block;margin-bottom:7px}
+  .wrap{width:min(100% - 30px,1180px)}
 }
 </style>
 </head>
@@ -115,9 +215,10 @@ footer{padding:50px 0 70px;color:var(--muted);font-size:12px}
 <div class="wrap">
 <nav>
 <a class="brand" href="#top">
-<img src="assets/medium-engineering-mark.svg" alt="Medium Engineering">
-<span>Medium Engineering</span>
+  MEDIUM ENGINEERING
+  <small>Engineering the medium</small>
 </a>
+<div class="nav-right">
 <div class="links">
 <a href="#discipline">Discipline</a>
 <a href="#cestrum">CeStrum</a>
@@ -125,6 +226,11 @@ footer{padding:50px 0 70px;color:var(--muted);font-size:12px}
 <a href="#projects">Projects</a>
 <a href="#research">R&amp;D</a>
 <a href="#contact">Contact</a>
+</div>
+<div class="cestrum-mini">
+<img src="assets/cestrum-seal.png" alt="CeStrum">
+<span>CeStrum</span>
+</div>
 </div>
 </nav>
 </div>
@@ -134,20 +240,24 @@ footer{padding:50px 0 70px;color:var(--muted);font-size:12px}
 
 <section class="hero">
 <div class="wrap">
-<div class="hero-visual">
+<div class="hero-frame">
 <img class="field" src="assets/cestrum-field.jpg" alt="CeStrum field representation">
+<div class="hero-field-mask"></div>
+
 <div class="hero-copy">
-<div class="kicker">Medium Engineering</div>
+<div class="kicker"><i></i> Medium Engineering</div>
 <h1>We engineer the state of complex media.</h1>
 <p>
 An engineering discipline for controlling the physical state of complex media —
 so that what is difficult to separate, recover or treat can become accessible.
 </p>
 <div class="actions">
-<a class="btn primary" href="#discipline">Discover the approach</a>
+<a class="btn primary" href="#discipline">Discover the discipline</a>
 <a class="btn blue" href="#cestrum">Explore CeStrum</a>
 </div>
 </div>
+
+<div class="hero-caption">CeStrum field · engineering representation</div>
 </div>
 </div>
 </section>
@@ -182,13 +292,9 @@ Medium Engineering starts from a different question:
 
 <section>
 <div class="wrap">
-<div class="dark">
+<div class="statement">
 <div class="label">The central idea</div>
-<h2>We do not simply treat waste as waste.</h2>
-<p>
-We engineer the medium until its components become accessible — turning a
-problem of complex structure into an engineering problem of controlled state.
-</p>
+<h2>We do not simply treat waste as waste. We engineer the medium until its components become accessible.</h2>
 </div>
 </div>
 </section>
@@ -216,15 +322,16 @@ and changes at interfaces between phases.
 <div class="identity">
 <div class="identity-card">
 <div class="role">Engineering discipline</div>
-<img class="mark" src="assets/medium-engineering-mark.svg" alt="Medium Engineering mark">
 <h3>Medium Engineering</h3>
 <p>The discipline: engineering the state of complex media.</p>
+<div class="ce-text">Structure · state · accessibility · engineering</div>
 </div>
+
 <div class="identity-card">
 <div class="role">Technology platform</div>
-<img class="seal" src="assets/cestrum-seal.png" alt="CeStrum emblem">
+<img class="cestrum-seal" src="assets/cestrum-seal.png" alt="CeStrum emblem">
 <h3>CeStrum</h3>
-<p>The technology platform: physical systems for influencing the state of complex media.</p>
+<p>The technology platform for influencing the state of complex media.</p>
 </div>
 </div>
 
@@ -232,9 +339,9 @@ and changes at interfaces between phases.
 <div class="role">Physical system</div>
 <h3>CeStrum Reactor</h3>
 <p>
-A controlled physical reactor architecture designed to introduce defined energy
-impulses into a flowing medium. Proprietary geometry, operating regimes and
-other know-how are intentionally not disclosed on this public resource.
+A controlled physical reactor architecture designed to introduce defined
+energy impulses into a flowing medium. Proprietary geometry, operating
+regimes and other know-how are intentionally not disclosed on this public resource.
 </p>
 </div>
 </div>
