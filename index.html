@@ -3,104 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Medium Engineering — an engineering discipline for controlling the physical state of complex media.">
+<meta name="description" content="Medium Engineering — engineering the state of complex media.">
 <title>Medium Engineering</title>
 <style>
 :root{
-  --bg:#f5f7f5; --paper:#fff; --ink:#101815; --muted:#64706b;
-  --line:#d8dfdb; --green:#2d6257; --green2:#21483f; --soft:#e8efec;
+  --black:#0d1110; --paper:#f7f8f7; --white:#fff; --ink:#111715;
+  --muted:#68736f; --line:#d9dfdc; --blue:#2f6fe4; --red:#ef2b16;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
+body{margin:0;background:var(--paper);color:var(--ink);
 font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 line-height:1.55}
-a{text-decoration:none;color:inherit}
+a{color:inherit;text-decoration:none}
 .wrap{width:min(1180px,calc(100% - 48px));margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(245,247,245,.9);
-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav{height:78px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:-.025em}
-.logo{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#fff;
-display:grid;place-items:center}
-.logo:before{content:"";width:17px;height:17px;border:2px solid var(--green);border-radius:50%}
-.links{display:flex;gap:28px;font-size:14px;color:#48534f}
-.links a:hover{color:var(--green)}
 
-.hero{padding:118px 0 100px}
-.eyebrow,.label{color:var(--green);font-size:11px;font-weight:800;
-letter-spacing:.16em;text-transform:uppercase}
-.eyebrow{display:flex;align-items:center;gap:9px}
-.eyebrow i{width:7px;height:7px;background:var(--green);border-radius:50%}
-h1{font-size:clamp(52px,7.5vw,96px);line-height:.94;letter-spacing:-.065em;
-max-width:1080px;margin:22px 0 30px;font-weight:680}
-.hero .intro{font-size:21px;color:var(--muted);max-width:790px;margin:0}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:38px}
-.btn{display:inline-block;padding:13px 20px;border:1px solid var(--green);
-border-radius:7px;font-size:14px;font-weight:700}
-.primary{background:var(--green);color:white}
-.primary:hover{background:var(--green2)}
-.secondary{background:white;color:var(--green)}
+header{position:sticky;top:0;z-index:50;background:rgba(247,248,247,.92);
+backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav{height:82px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:760;letter-spacing:-.025em}
+.brand img{width:42px;height:42px}
+.links{display:flex;gap:27px;font-size:13px;color:#4d5854}
+.links a:hover{color:var(--blue)}
 
-section{padding:92px 0;border-top:1px solid var(--line)}
-.grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:82px}
-h2{font-size:clamp(36px,4.6vw,60px);line-height:1;letter-spacing:-.05em;margin:12px 0 22px}
-.lead{font-size:19px;color:#4d5954;margin:0 0 20px}
+.hero{padding:58px 0 95px}
+.hero-visual{position:relative;border-radius:10px;overflow:hidden;background:#fff;
+border:1px solid var(--line);min-height:520px;display:flex;align-items:flex-end}
+.hero-visual img.field{width:100%;height:520px;object-fit:cover;object-position:center}
+.hero-copy{position:absolute;left:46px;bottom:42px;max-width:800px;
+background:rgba(247,248,247,.91);padding:26px 30px;border-left:4px solid var(--red)}
+.kicker{font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
+h1{font-size:clamp(48px,7vw,88px);line-height:.91;letter-spacing:-.065em;
+margin:13px 0 18px;font-weight:680}
+.hero-copy p{font-size:18px;color:#4e5955;max-width:700px;margin:0}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}
+.btn{padding:12px 18px;border:1px solid var(--ink);border-radius:6px;
+font-size:13px;font-weight:720;background:white}
+.btn.primary{background:var(--black);color:#fff;border-color:var(--black)}
+.btn.blue{border-color:var(--blue);color:var(--blue)}
 
-.architecture{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);
-border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--paper)}
-.arch{padding:25px 22px;min-height:180px;border-right:1px solid var(--line);position:relative}
-.arch:last-child{border-right:0}
-.arch .num{font-size:11px;color:var(--green);font-weight:800;margin-bottom:31px}
-.arch h3{margin:0 0 7px;font-size:20px;letter-spacing:-.025em}
-.arch p{margin:0;color:var(--muted);font-size:14px}
-.arch:after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);
-background:var(--paper);padding:0 4px;color:var(--green);font-weight:700;z-index:2}
-.arch:last-child:after{display:none}
+section{padding:90px 0;border-top:1px solid var(--line)}
+.label{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+h2{font-size:clamp(35px,4.5vw,58px);line-height:.98;letter-spacing:-.05em;margin:10px 0 20px}
+.lead{font-size:18px;color:#4d5955;margin:0 0 18px}
 
-.dark{background:var(--ink);color:#f4f7f5;border-radius:10px;padding:58px}
-.dark .label{color:#a9beb7}
+.flow{margin-top:45px;display:grid;grid-template-columns:repeat(4,1fr);
+border:1px solid var(--line);background:white;border-radius:8px;overflow:hidden}
+.flow-item{padding:24px 21px;min-height:170px;border-right:1px solid var(--line);position:relative}
+.flow-item:last-child{border-right:0}
+.flow-item .n{font-size:10px;color:var(--red);font-weight:800;margin-bottom:29px}
+.flow-item h3{font-size:18px;line-height:1.15;margin:0 0 8px}
+.flow-item p{font-size:13px;color:var(--muted);margin:0}
+.flow-item:after{content:"→";position:absolute;right:-10px;top:50%;background:white;
+padding:0 4px;color:var(--red);font-weight:800}
+.flow-item:last-child:after{display:none}
+
+.dark{background:var(--black);color:white;border-radius:9px;padding:55px 58px;position:relative;overflow:hidden}
+.dark:before,.dark:after{content:"";position:absolute;border:1px solid rgba(47,111,228,.5);
+border-radius:50%;width:430px;height:160px;right:-130px;top:-50px;transform:rotate(18deg)}
+.dark:after{border-color:rgba(239,43,22,.55);right:90px;top:55px;width:260px;height:110px}
+.dark .label{color:#8bb0ff}
 .dark h2{max-width:900px;margin-bottom:0}
-.dark p{max-width:850px;color:#b9c4c0;font-size:18px}
+.dark p{max-width:820px;color:#b9c3bf;font-size:18px}
 
-.ce-strum{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
-.ce-card{background:white;border:1px solid var(--line);border-radius:8px;padding:32px}
-.ce-card .tag{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.ce-card h3{font-size:29px;letter-spacing:-.04em;margin:12px 0}
-.ce-card p{color:var(--muted);font-size:15px;margin:0}
-.blackbox{margin-top:16px;background:var(--soft);border-left:3px solid var(--green);
-padding:22px 24px;color:#46534e;font-size:14px}
+.identity{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.identity-card{background:white;border:1px solid var(--line);border-radius:8px;padding:34px}
+.identity-card img.seal{width:125px;height:125px;object-fit:contain;background:#000;border-radius:50%}
+.identity-card .mark{width:76px;height:76px}
+.identity-card h3{font-size:29px;letter-spacing:-.04em;margin:20px 0 9px}
+.identity-card p{font-size:14px;color:var(--muted);margin:0}
+.role{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 
-.applications{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:42px}
-.app{background:white;border:1px solid var(--line);border-radius:8px;padding:25px;min-height:220px}
-.app .num{color:var(--green);font-size:11px;font-weight:800}
-.app h3{font-size:19px;margin:28px 0 10px;letter-spacing:-.025em}
-.app p{font-size:14px;color:var(--muted);margin:0}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.app{background:white;border:1px solid var(--line);border-radius:8px;padding:24px;min-height:205px}
+.app .n{font-size:10px;color:var(--red);font-weight:800}
+.app h3{font-size:19px;letter-spacing:-.025em;margin:26px 0 9px}
+.app p{font-size:13px;color:var(--muted);margin:0}
 
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:42px}
-.project{border-top:2px solid var(--green);padding-top:19px}
-.project .state{font-size:10px;color:var(--green);font-weight:800;letter-spacing:.11em;text-transform:uppercase}
-.project h3{font-size:21px;margin:13px 0 8px}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+.project{border-top:2px solid var(--red);padding-top:18px}
+.project .state{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.project h3{font-size:20px;margin:12px 0 8px}
 .project p{font-size:14px;color:var(--muted);margin:0}
 
-.research{margin-top:42px;border-top:1px solid var(--line)}
-.research-row{display:flex;justify-content:space-between;gap:30px;padding:19px 0;border-bottom:1px solid var(--line)}
-.research-row strong{font-size:15px}.research-row span{font-size:14px;color:var(--muted);text-align:right}
+.research{margin-top:38px;border-top:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;gap:25px;padding:18px 0;border-bottom:1px solid var(--line)}
+.row strong{font-size:14px}.row span{font-size:13px;color:var(--muted);text-align:right}
 
-.contact-box{background:var(--soft);padding:42px;border-radius:9px}
-.contact-box h2{margin-top:8px}
-footer{padding:50px 0 70px;color:var(--muted);font-size:13px}
-.foot{border-top:1px solid var(--line);padding-top:23px;display:flex;justify-content:space-between;gap:20px}
+.contact{background:white;border:1px solid var(--line);border-radius:9px;padding:43px}
+footer{padding:50px 0 70px;color:var(--muted);font-size:12px}
+.foot{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between}
 
 @media(max-width:900px){
- .links{display:none}.hero{padding:78px 0 70px}
- .grid{grid-template-columns:1fr;gap:30px}
- .architecture{grid-template-columns:1fr}
- .arch{border-right:0;border-bottom:1px solid var(--line);min-height:auto}
- .arch:last-child{border-bottom:0}.arch:after{display:none}
- .ce-strum,.applications,.projects{grid-template-columns:1fr}
- .dark{padding:34px}
- .research-row{display:block}.research-row span{display:block;text-align:left;margin-top:4px}
+ .links{display:none}.hero{padding:25px 0 65px}.hero-visual{min-height:520px}
+ .hero-visual img.field{height:520px}.hero-copy{left:20px;right:20px;bottom:20px;padding:22px}
+ .grid{grid-template-columns:1fr;gap:28px}
+ .flow,.identity,.apps,.projects{grid-template-columns:1fr}
+ .flow-item{border-right:0;border-bottom:1px solid var(--line);min-height:auto}
+ .flow-item:last-child{border-bottom:0}.flow-item:after{display:none}
+ .dark{padding:32px}.contact{padding:30px}
+ .row{display:block}.row span{display:block;text-align:left;margin-top:4px}
  .foot{display:block}.foot span{display:block;margin-bottom:7px}
  .wrap{width:min(100% - 30px,1180px)}
 }
@@ -111,7 +114,10 @@ footer{padding:50px 0 70px;color:var(--muted);font-size:13px}
 <header>
 <div class="wrap">
 <nav>
-<a class="brand" href="#top"><span class="logo"></span><span>Medium Engineering</span></a>
+<a class="brand" href="#top">
+<img src="assets/medium-engineering-mark.svg" alt="Medium Engineering">
+<span>Medium Engineering</span>
+</a>
 <div class="links">
 <a href="#discipline">Discipline</a>
 <a href="#cestrum">CeStrum</a>
@@ -128,16 +134,20 @@ footer{padding:50px 0 70px;color:var(--muted);font-size:13px}
 
 <section class="hero">
 <div class="wrap">
-<div class="eyebrow"><i></i> Engineering the medium</div>
+<div class="hero-visual">
+<img class="field" src="assets/cestrum-field.jpg" alt="CeStrum field representation">
+<div class="hero-copy">
+<div class="kicker">Medium Engineering</div>
 <h1>We engineer the state of complex media.</h1>
-<p class="intro">
-Medium Engineering is an engineering discipline for controlling the physical
-state of complex media — so that what is difficult to separate, recover or
-treat can become accessible.
+<p>
+An engineering discipline for controlling the physical state of complex media —
+so that what is difficult to separate, recover or treat can become accessible.
 </p>
 <div class="actions">
 <a class="btn primary" href="#discipline">Discover the approach</a>
-<a class="btn secondary" href="#contact">Start a conversation</a>
+<a class="btn blue" href="#cestrum">Explore CeStrum</a>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -151,22 +161,21 @@ treat can become accessible.
 </div>
 <div>
 <p class="lead">
-Industrial media are rarely simple mixtures. Their behavior can be governed
-by dispersion, aggregation, interfaces, surface effects and structural states.
+Industrial media are rarely simple mixtures. Their behavior can depend on
+dispersion, aggregation, interfaces, surface effects and structural states.
 </p>
 <p class="lead">
-Conventional treatment often changes chemistry while leaving much of that
-structure untouched. Medium Engineering starts from a different question:
+Medium Engineering starts from a different question:
 <strong>can the state of the medium itself be engineered?</strong>
 </p>
 </div>
 </div>
 
-<div class="architecture">
-<div class="arch"><div class="num">01</div><h3>Complex medium</h3><p>Water, minerals, hydrocarbons, residues and dispersed systems.</p></div>
-<div class="arch"><div class="num">02</div><h3>Structural state</h3><p>Understand how components interact, disperse and remain inaccessible.</p></div>
-<div class="arch"><div class="num">03</div><h3>Controlled action</h3><p>Apply a defined physical impulse to alter the system state.</p></div>
-<div class="arch"><div class="num">04</div><h3>Accessibility</h3><p>Enable separation, recovery or treatment that was previously difficult.</p></div>
+<div class="flow">
+<div class="flow-item"><div class="n">01</div><h3>Complex medium</h3><p>Water, minerals, hydrocarbons, residues and dispersed systems.</p></div>
+<div class="flow-item"><div class="n">02</div><h3>Structural state</h3><p>Understand interactions, dispersion and inaccessible components.</p></div>
+<div class="flow-item"><div class="n">03</div><h3>Controlled action</h3><p>Introduce a defined physical impulse into the system.</p></div>
+<div class="flow-item"><div class="n">04</div><h3>Accessibility</h3><p>Enable separation, recovery or treatment.</p></div>
 </div>
 </div>
 </section>
@@ -204,29 +213,29 @@ and changes at interfaces between phases.
 </div>
 </div>
 
-<div class="ce-strum">
-<div class="ce-card">
-<div class="tag">Technology platform</div>
-<h3>CeStrum</h3>
-<p>
-A family of engineering solutions for influencing the structural state of
-complex media and creating conditions for separation, accessibility and
-resource recovery.
-</p>
+<div class="identity">
+<div class="identity-card">
+<div class="role">Engineering discipline</div>
+<img class="mark" src="assets/medium-engineering-mark.svg" alt="Medium Engineering mark">
+<h3>Medium Engineering</h3>
+<p>The discipline: engineering the state of complex media.</p>
 </div>
-<div class="ce-card">
-<div class="tag">Physical system</div>
-<h3>CeStrum Reactor</h3>
-<p>
-A controlled physical reactor architecture designed to introduce defined
-energy impulses into a flowing medium.
-</p>
+<div class="identity-card">
+<div class="role">Technology platform</div>
+<img class="seal" src="assets/cestrum-seal.png" alt="CeStrum emblem">
+<h3>CeStrum</h3>
+<p>The technology platform: physical systems for influencing the state of complex media.</p>
 </div>
 </div>
 
-<div class="blackbox">
-Proprietary reactor geometry, operating regimes, experimental parameters and
+<div class="identity-card" style="margin-top:16px">
+<div class="role">Physical system</div>
+<h3>CeStrum Reactor</h3>
+<p>
+A controlled physical reactor architecture designed to introduce defined energy
+impulses into a flowing medium. Proprietary geometry, operating regimes and
 other know-how are intentionally not disclosed on this public resource.
+</p>
 </div>
 </div>
 </section>
@@ -235,12 +244,11 @@ other know-how are intentionally not disclosed on this public resource.
 <div class="wrap">
 <div class="label">03 / Applications</div>
 <h2>One discipline.<br>Different industrial media.</h2>
-
-<div class="applications">
-<div class="app"><div class="num">01 / MINING</div><h3>Mine water &amp; AMD</h3><p>Complex acidic mine drainage, treatment, phase separation and potential mineral recovery.</p></div>
-<div class="app"><div class="num">02 / MINERALS</div><h3>Mineral systems</h3><p>Improving accessibility, classification, concentration and recovery in dispersed mineral systems.</p></div>
-<div class="app"><div class="num">03 / HYDROCARBONS</div><h3>Heavy oil &amp; emulsions</h3><p>Engineering structural states in difficult hydrocarbon systems to improve process accessibility.</p></div>
-<div class="app"><div class="num">04 / MARINE</div><h3>Ports &amp; industrial water</h3><p>New approaches to bilge water, port discharges and other complex aqueous systems.</p></div>
+<div class="apps">
+<div class="app"><div class="n">01 / MINING</div><h3>Mine water &amp; AMD</h3><p>Complex acidic mine drainage, treatment, phase separation and potential mineral recovery.</p></div>
+<div class="app"><div class="n">02 / MINERALS</div><h3>Mineral systems</h3><p>Accessibility, classification, concentration and recovery in dispersed mineral systems.</p></div>
+<div class="app"><div class="n">03 / HYDROCARBONS</div><h3>Heavy oil &amp; emulsions</h3><p>Engineering structural states in difficult hydrocarbon systems.</p></div>
+<div class="app"><div class="n">04 / MARINE</div><h3>Ports &amp; industrial water</h3><p>New approaches to bilge water, port discharges and complex aqueous systems.</p></div>
 </div>
 </div>
 </section>
@@ -249,7 +257,6 @@ other know-how are intentionally not disclosed on this public resource.
 <div class="wrap">
 <div class="label">04 / Projects</div>
 <h2>From laboratory effects<br>to industrial systems.</h2>
-
 <div class="projects">
 <div class="project"><div class="state">Industrial validation</div><h3>Andalusia · AMD</h3><p>Development of an industrial approach for large-volume acidic mine drainage and resource recovery.</p></div>
 <div class="project"><div class="state">European R&amp;D</div><h3>Europe · Technology platform</h3><p>Building a network of laboratories, universities and industrial partners for validation and scale-up.</p></div>
@@ -272,10 +279,10 @@ industrial partners and pilot installations working together to move
 measurable effects from laboratory scale toward deployable systems.
 </p>
 <div class="research">
-<div class="research-row"><strong>Complex media physics</strong><span>Structure · interfaces · dispersion</span></div>
-<div class="research-row"><strong>Resource accessibility</strong><span>Separation · concentration · recovery</span></div>
-<div class="research-row"><strong>Environmental engineering</strong><span>Water · residues · industrial discharge</span></div>
-<div class="research-row"><strong>Industrial scale-up</strong><span>Pilot systems · modular engineering</span></div>
+<div class="row"><strong>Complex media physics</strong><span>Structure · interfaces · dispersion</span></div>
+<div class="row"><strong>Resource accessibility</strong><span>Separation · concentration · recovery</span></div>
+<div class="row"><strong>Environmental engineering</strong><span>Water · residues · industrial discharge</span></div>
+<div class="row"><strong>Industrial scale-up</strong><span>Pilot systems · modular engineering</span></div>
 </div>
 </div>
 </div>
@@ -283,7 +290,7 @@ measurable effects from laboratory scale toward deployable systems.
 
 <section id="contact">
 <div class="wrap">
-<div class="contact-box">
+<div class="contact">
 <div class="label">06 / Contact</div>
 <h2>Let’s engineer the next medium.</h2>
 <p class="lead">
@@ -304,7 +311,7 @@ resource challenges.
 <div class="wrap">
 <div class="foot">
 <span>© 2026 Medium Engineering</span>
-<span>Europe · R&amp;D · Industrial Technology</span>
+<span>Europe · R&amp;D · Industrial Technology · CeStrum</span>
 </div>
 </div>
 </footer>
